@@ -18,7 +18,7 @@ pipeline {
         stage('Build') {
             steps {
                 sh '''
-                docker build -t myapp .
+                docker build -t myflaskapp .
                 '''
             }
         }
@@ -32,8 +32,8 @@ pipeline {
                 )]) {
                     sh '''
                     echo "$dockerHubPass" | docker login -u "$dockerHubUser" --password-stdin
-                    docker tag myapp $dockerHubUser/myapp:latest
-                    docker push $dockerHubUser/myapp:latest
+                    docker tag myapp $dockerHubUser/myflaskapp:latest
+                    docker push $dockerHubUser/myflaskapp:latest
                     '''
                 }
             }
