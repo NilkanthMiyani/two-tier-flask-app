@@ -32,7 +32,7 @@
                 )]) {
                     sh '''
                     echo "$dockerHubPass" | docker login -u "$dockerHubUser" --password-stdin
-                    docker tag myapp $dockerHubUser/myflaskapp:latest
+                    docker tag myflaskapp $dockerHubUser/myflaskapp:latest
                     docker push $dockerHubUser/myflaskapp:latest
                     '''
                 }
