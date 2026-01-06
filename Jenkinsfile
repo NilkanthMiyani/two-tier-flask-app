@@ -46,4 +46,17 @@
             }
         }
     }
+    
+    post {
+    success {
+        mail to: 'miyaninilkanth2@gmail.com',
+             subject: "Build Successful: ${env.JOB_NAME} [${env.BUILD_NUMBER}]",
+             body: "Good News: Your build is successful! Check it out here: ${env.BUILD_URL}"
+    }
+    failure {
+        mail to: 'miyaninilkanth2@gmail.com',
+             subject: "Build Failed: ${env.JOB_NAME} [${env.BUILD_NUMBER}]",
+             body: "Bad News: Your build failed! Review the logs at: ${env.BUILD_URL}"
+    }
+}
 }
